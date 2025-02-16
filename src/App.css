@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+/* Apply Inter to the entire app */
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 24px;
+}
+.icons {
+  display: flex;
+  align-items: center;
+}
+.cell {
+  flex: 1;
+  display: flex;
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: 64px;
+  /* padding: 10px 0px; */
+  flex-direction: column;
+  color: var(--key-color);
+  border-bottom: 1px solid #fff;
+  background: #000;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out; /* Animation */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cell:hover {
+  background-color: #222;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cell.selected {
+  background-color: var(--key-color);
+  color: black;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.score-cell {
+  background-color: white;
+  color: black;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.cellGroup {
+  gap: 4px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Default font size */
+  line-height: 1.5;
+  font-weight: 600; /* Improve readability */
+}
+
+.columns {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.button {
+  height: 48px;
+  width: 80px;
+}
+
+.button.reset {
+  width: 48px;
+}
+
+.score {
+  display: flex;
+  font-size: 20px;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  margin-inline: auto;
 }
