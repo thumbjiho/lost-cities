@@ -34,13 +34,17 @@ function CellGroup({ color, columnIndex, setColumnScores, resetTrigger }) {
     setHandshakeCount((prev) => (prev >= 3 ? 0 : prev + 1));
   };
 
-  useEffect(() => {
+  const updateColumnScores = useCallback(() => {
     setColumnScores((prevScores) =>
       prevScores.map((score, i) =>
         i === columnIndex ? calculateScore() : score
       )
     );
-  }, [calculateScore, selectedNumbers, handshakeCount, resetTrigger]);
+  }, [calculateScore, columnIndex, setColumnScores]);
+
+  useEffect(() => {
+    updateColumnScores();
+  }, [updateColumnScores, selectedNumbers, handshakeCount, resetTrigger]);
 
   useEffect(() => {
     setSelectedNumbers([]);
